@@ -5,13 +5,16 @@ import './index.css';
 import App from './App.jsx';
 import {BrowserRouter} from "react-router-dom"
 import { UserProviderWrapper } from "./contents/user.context.jsx";
+import { BlogProviderWrapper } from "./contents/blog.context.jsx";
 
 createRoot(document.getElementById('root')).render(
   //<StrictMode>
-  <UserProviderWrapper>
-  <BrowserRouter>
-  <App />
-  </BrowserRouter>
-  </UserProviderWrapper>
+  <BlogProviderWrapper>
+    <UserProviderWrapper>
+      <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </UserProviderWrapper>
+  </BlogProviderWrapper>
   //</StrictMode>,
 )
