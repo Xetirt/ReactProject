@@ -1,19 +1,16 @@
+import { useContext } from "react"
 import HeaderComponent from "../components/HeaderComponent"
-import { UserContext, UserProviderWrapper } from '../contents/user.context.jsx';
-import { useContext } from 'react';
-
-function HomePages() {
-  const {user, setUser} = useContext(UserContext);
+import { UserContext } from "../contents/user.context";
+function HomePage() {
+  const {user, login, logout} = useContext(UserContext);
   return (
     <>
-    
     <HeaderComponent></HeaderComponent>
-    
-    <div>HomePages</div>
-    <br></br>
+    <h2>Hola {user && <span>{user.name}</span>}</h2>
+    <div>HomePage</div>
+    <button onClick={() => login()}>Login</button>
+        <button onClick={() => logout()}>Logout</button>
     </>
-    
   )
 }
-
-export default HomePages
+export default HomePage;

@@ -27,7 +27,7 @@ function BlogPage() {
             <li key={post.id}>
                 <PostCard post={post}></PostCard>
             </li>
-        )
+        );
     })
 
 

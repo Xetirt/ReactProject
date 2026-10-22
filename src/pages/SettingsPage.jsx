@@ -1,19 +1,15 @@
-import React from 'react';
-import HeaderComponent from '../components/HeaderComponent';
-
+import { useContext, useState } from "react";
+import HeaderComponent from "../components/HeaderComponent";
+import { Navigate } from "react-router-dom";
+import { UserContext } from "../contents/user.context";
 function SettingsPage() {
-  const [hasAccess, setAccess] = useState(true);
-
-  if (!hasAccess) return <Navigate to={"/error"} />
-
-
-  return (
+    const {user} = useContext(UserContext)
+    if(!user?.isAdmin) return <Navigate to={"/error"}/>
+    return (
     <>
     <HeaderComponent></HeaderComponent>
-
-    <div>SettingPage</div>
+    <div>Settings</div>
     </>
-  );
+    );
 }
-
 export default SettingsPage;
