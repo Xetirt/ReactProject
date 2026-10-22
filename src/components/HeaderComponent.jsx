@@ -1,8 +1,10 @@
-import "./HeaderComponent.css"
-import {Link} from "react-router-dom"
-
+import { React, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../contents/user.context';
+import "./HeaderComponent.css";
 
 function HeaderComponent () {
+    const {user} = useContext(UserContext);
     return (
       <header className="header">
         <h1 className="link">Welcome!</h1>
@@ -13,6 +15,9 @@ function HeaderComponent () {
                 </li>
                 <li>
                     <Link className="link" to="/blog">Blog</Link>
+                </li>
+                <li>
+                    <Link className="link" to="/settings">Settings</Link>
                 </li>
                 <li>
                     <Link className="link" to="/Test">Test</Link>
